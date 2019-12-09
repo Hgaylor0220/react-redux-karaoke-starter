@@ -23,6 +23,7 @@ export function fetchSongId(title) {
     title = title.replace(' ', '_');
     return fetch('http://api.musixmatch.com/ws/1.1/track.search?&q_track=' + title + '&page_size=1&s_track_rating=desc&apikey=3402bea27892346cc84ff17218360644').then(
       response => response.json(),
+      
       error => console.log('An error occurred.', error)
     ).then(function(json) {
       if (json.message.body.track_list.length > 0) {
@@ -70,3 +71,5 @@ export const receiveSong = (title, artist, songId, songArray) => ({
 });
 
 //3402bea27892346cc84ff17218360644
+
+//May need Moesif Orign & CORS Changer chrome extension in case of CORS error
